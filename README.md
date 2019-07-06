@@ -15,6 +15,8 @@ The project shows a small scene with several modifiable objects or features. The
    
  A small video is also attached to the project showcasing how the small scene can be edited through a small GUI window activated through ALT+0.
  
+ To see the video, go to https://vimeo.com/346617566
+ 
 ----------------------------------------------------------------------------------------------------------------------------------------
  For the small AI for navigation, the instructions are the following:
  The user has a 8x12 grid, made of different floor tiles, in which to draw several paths according to their desires.
