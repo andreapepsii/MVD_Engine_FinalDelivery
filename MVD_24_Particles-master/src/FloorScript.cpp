@@ -37,16 +37,16 @@ void FloorScript::update(float dt) {
 
 		//get material the user wants according the button pressed
 		if(input_->GetKey(GLFW_KEY_1)) {
-			mat_value = 2;
-		}
-		if (input_->GetKey(GLFW_KEY_2)) {
 			mat_value = 3;
 		}
-		if (input_->GetKey(GLFW_KEY_3)) {
+		if (input_->GetKey(GLFW_KEY_2)) {
 			mat_value = 4;
 		}
-		if (input_->GetKey(GLFW_KEY_4)) {
+		if (input_->GetKey(GLFW_KEY_3)) {
 			mat_value = 5;
+		}
+		if (input_->GetKey(GLFW_KEY_4)) {
+			mat_value = 6;
 		}
 
 		//user can restart painting the grid and restart the simulation
@@ -54,14 +54,14 @@ void FloorScript::update(float dt) {
 			currentPressed = true;
 			restart = true;
 			placedAllTiles = false;
-			mat_value = 6;
+			mat_value = 7;
 			currentCol = 0;
 			currentRow = 0;
 			for (int i = 0; i < 12; i++) {
 				for (int j = 0; j < 8; j++) {
 					int floor = ECS.getEntity("floor_" + to_string(i * 8 + j));
 					Mesh& mesh = ECS.getComponentFromEntity<Mesh>(floor);
-					mesh.material = 6;
+					mesh.material = 7;
 					floor_matrix[j][i] = -1;
 				}
 			}
@@ -80,7 +80,7 @@ void FloorScript::update(float dt) {
 		}
 
 		//making sure it doesn't go beyond all the available tiles
-		if (currentCol * 8 + currentRow < 96 && mat_value != 6) {
+		if (currentCol * 8 + currentRow < 96 && mat_value != 7) {
 
 			//change material from tile for better UX
 			int floor = ECS.getEntity("floor_" + to_string(currentCol * 8 + currentRow));
@@ -89,16 +89,16 @@ void FloorScript::update(float dt) {
 			
 			//save floor status according to grid
 			switch (mat_value) {
-				case 2: //case end of route
+				case 3: //case end of route
 					floor_matrix[currentRow][currentCol] = 2;
 					break;
-				case 3: //case start of route
+				case 4: //case start of route
 					floor_matrix[currentRow][currentCol] = 3;
 					break;
-				case 4: //case route
+				case 5: //case route
 					floor_matrix[currentRow][currentCol] = 1;
 					break;
-				case 5: //case bad floor
+				case 6: //case bad floor
 					floor_matrix[currentRow][currentCol] = 0;
 					break;
 			}

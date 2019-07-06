@@ -71,7 +71,7 @@ void Game::init(int w, int h) {
 	ParticleEmitter& particleEm = ECS.createComponentForEntity<ParticleEmitter>(snow);
 	ECS.createComponentForEntity<Transform>(snow);
 	ECS.getComponentFromEntity<Transform>(snow).rotateLocal(3.14, lm::vec3(1, 0, 0));
-	ECS.getComponentFromEntity<Transform>(snow).translate(-100, 30, 120);
+	ECS.getComponentFromEntity<Transform>(snow).translate(-140, 30, 0);
 	particleEm.num_particles = 10000;
 	particleEm.max_life = 500;
 	particleEm.particle_size = 2.0;
@@ -91,7 +91,6 @@ void Game::init(int w, int h) {
 	light_comp_dir.setPerspective(60 * DEG2RAD, 1, 1, 200);
 	light_comp_dir.update();
 	light_comp_dir.cast_shadow = true;
-	
 
     //******* LATE INIT AFTER LOADING RESOURCES *******//
     graphics_system_.lateInit();
@@ -207,7 +206,7 @@ void Game::createTerrain(Shader* terrain_shader) {
 	int terrain_entity = ECS.createEntity("Terrain");
 	Mesh& terrain_mesh = ECS.createComponentForEntity<Mesh>(terrain_entity);
 	Transform& transform_mesh = ECS.createComponentForEntity<Transform>(terrain_entity);
-	transform_mesh.translate(lm::vec3(-100, 0, 120));
+	transform_mesh.translate(lm::vec3(-140, 0, 0));
 	terrain_mesh.geometry = terrain_geometry;
 	terrain_mesh.material = mat_terrain_index;
 	terrain_mesh.render_mode = RenderModeForward;

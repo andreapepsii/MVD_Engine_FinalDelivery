@@ -42,7 +42,7 @@ void NavmeshScript::update(float dt) {
 			if (fs->floor_matrix[currRow][currCol] == 2) {
 				cout << "Character has found the end of your trail succesfully!" << endl;
 				float x = 15 - 2.5*currCol - 1.25;
-				float z = 10 - 2.5*currRow - 1.25;
+				float z = - 10 - 2.5*currRow - 1.25;
 				transform->m[12] = x;
 				transform->m[13] = 0.0;
 				transform->m[14] = z;

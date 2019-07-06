@@ -14,7 +14,7 @@ void MoveScript::update(float dt) {
 		//avoid moving to -1 -1, which is the start value
 		if ((nms->prevCol != -1) && (nms->prevCol != -1)) {
 			float x = 15 - 2.5*nms->currCol - 1.25;
-			float z = 10 - 2.5*nms->currRow - 1.25;
+			float z = - 10 - 2.5*nms->currRow - 1.25;
 			transform->m[12] = x;
 			transform->m[13] = 0.0;
 			transform->m[14] = z;

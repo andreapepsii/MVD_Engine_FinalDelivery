@@ -48,14 +48,14 @@ void SpawnControllerScript::update(float dt) {
 				for (int j = 0; j < 12; j++) {
 					int floor = ECS.getEntity("floor_" + to_string(j * 8 + i));
 					Mesh& mesh = ECS.getComponentFromEntity<Mesh>(floor);
-					mesh.material = 6;
+					mesh.material = 7;
 				}
 			}
 		}else{
 
 			//place teapot in start position
 			float x = 15 - 2.5*spawnCol - 1.25;
-			float z = 10 - 2.5*spawnRow - 1.25;
+			float z = - 10 - 2.5*spawnRow - 1.25;
 			transform->m[12] = x;
 			transform->m[13] = 0.0;
 			transform->m[14] = z;
@@ -67,9 +67,10 @@ void SpawnControllerScript::update(float dt) {
 
 	//place character in initial position
 	if (fs->restart == true) {
+
 		transform->m[12] = 0.0f;
-		transform->m[13] = 13.0f;
-		transform->m[14] = -21.5f;
+		transform->m[13] = -1.0f;
+		transform->m[14] = -20.0f;
 	}
 
 

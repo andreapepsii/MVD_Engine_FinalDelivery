@@ -766,8 +766,6 @@ void DebugSystem::updateimGUI_(float dt) {
 					ImGui::SliderFloat3("Color", color, 0, 1, "%.3f");
 					ImGui::SliderFloat3("Direction", direction, -1.0, 1.0, "%.3f");
 					type = LightTypeDirectional;
-					linear_att = 0;
-					quadratic_att = 0;
 					break;
 				case 1:
 					ImGui::DragFloat3("Position", pos_array, 1.0, -1000, 1000);
@@ -788,7 +786,6 @@ void DebugSystem::updateimGUI_(float dt) {
 						spot_inner = spot_outer + 1;
 					}
 					type = LightTypeSpot;
-
 					break;
 				default:
 					break;
@@ -816,7 +813,7 @@ void DebugSystem::updateimGUI_(float dt) {
 						light.linear_att = linear_att;
 						light.quadratic_att = quadratic_att;
 						light.spot_inner = spot_inner;
-						light.quadratic_att = spot_outer;
+						light.spot_outer = spot_outer;
 					}
 					light.cast_shadow = true;
 					light.update();
@@ -890,9 +887,6 @@ void DebugSystem::updateimGUI_(float dt) {
 		}
 		*/
 
-        
-        
-        
         //*** PICKING*** //
         //general approach: Debug System has a member variable which is an entity
         //with Ray Collider (ent_picking_ray_). When user clicks on the screen, this
@@ -918,7 +912,6 @@ void DebugSystem::updateimGUI_(float dt) {
 			ImGui::Text("Selected entity:");
 			ImGui::TextColored(ImVec4(1, 1, 0, 1), ECS.entities[picked_collider.owner].name.c_str());
 		}
-
 
 		ImGui::End();
 
