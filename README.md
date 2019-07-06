@@ -35,6 +35,7 @@ The grid has 4 different types of tiles:
  The user can repaint the floor again if desired.
  
 Finally, if the user wishes to restart painting the grid at any time, it can be done by pressing the R key.
+
 ----------------------------------------------------------------------------------------------------------------------------------------
 
 Some important notes:
